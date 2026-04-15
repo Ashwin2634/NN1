@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.4.1",
+    "path": "^0.12.7",
+    "socket.io": "^4.8.3",
+    "url": "^0.11.4"
+  }
+}

@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+    color:rebeccapurple;
+    font-family: system-ui, sans-serif;
+    overflow: hidden;
+}
+#container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    
+}
+
+
+
+/*  left pane --->contacts */
+
+
+#contact_pane{
+    width: 30%;
+    height: 100%;
+    background-color: aqua;
+}
+
+#intropane{
+    width: 100%;
+    height:8%;
+    background-color: darkcyan;
+    display: flex;
+}
+
+#contacts{
+    overflow: auto;
+}
+
+#logo{
+    height: 100%;
+    width: 80px;
+    overflow: hidden;
+    opacity: 1;
+    
+}
+#logo img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;     /* or 'cover' if you want to fill the space */
+    display: block;         /* removes unwanted bottom space */
+}
+
+#currentUser{
+    align-content: center;
+    padding-left: 90px;
+    font-weight: bold;
+}
+
+.contactCard{
+    width: 100%;
+    height:60px;
+    background-color: bisque;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    align-content: center;
+    text-align: center;
+}
+
+
+
+
+
+/* right pane --->chatbox */
+
+
+#chatbox{
+    width: 70%;
+    height: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+}
+
+#user{
+    width: 100%;
+    height:8%;
+    background-color: burlywood;
+    align-content: center;
+    padding-left: 20px;
+}
+
+#userId{
+    font-weight: bold;
+
+}
+
+#chats{
+    width: 100%;
+    height:82%;
+}
+
+#messagebox{
+    width: 100%;
+    height:10%;
+    background-color:grey;
+    padding: 4px;
+    display: flex;
+}
+
+#msgInput{
+    border: 2px solid red;
+    border-radius: 5px;
+    height: 100%;
+    width: 85%;
+    align-content: center;
+    padding-left: 20px;
+}
+
+#sendBtn{
+    height: 100%;
+    width: 15%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.msgBox{
+    
+    overflow: auto;
+    width: 100%;
+    height:100%;
+    display: none;
+    
+}
+
+
+.my-message{
+    
+    list-style: none;
+    right: 0;
+
+    border: 2px solid red;
+    border-radius: .7rem;
+
+    width: fit-content;
+    max-width: 80%;
+    overflow: auto;
+
+    margin: .5rem .5rem 0 .5rem;
+    padding: .1rem .7rem .3rem;
+    margin-left: auto;
+}
+
+.their-message{
+    
+    list-style: none;
+    
+    border: 2px solid red;
+    border-radius: .7rem;
+
+    width: fit-content;
+    max-width: 80%;
+    overflow: auto;
+
+    margin: .5rem .5rem 0 .5rem;
+    padding: .1rem .7rem .3rem;
+} 
+
+.ulll{
+    display: flex;
+    flex-direction: column;
+}

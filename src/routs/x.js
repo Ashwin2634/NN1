@@ -1,0 +1,3 @@
+const lgnRoute = 
+
+export {lgnRoute};

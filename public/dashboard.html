@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style/dashboard_style.css">
+    <!-- <script src="script/dashboard_script.js" defer></script> -->
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="contact_pane">
+            <div id="intropane">
+                <div id="logo">
+                    <img src="img/Logo.png" alt="LOGO" >
+                </div>
+                
+                <p id="currentUser">NetworkNest</p>
+        
+            </div>
+            <div id="contacts">
+                <ul id="cn">
+
+                </ul>
+
+            </div>
+        </div>
+        <div id="chatbox">
+            <div id="user">
+                <p id="userId">NetworkNest</p>
+            </div>
+            <div id="chats">
+            
+            </div>
+            <div id="messagebox">
+                
+                <input id="msgInput" placeholder="....message">
+                <button id="sendBtn">Send</button>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="./script/auth_dashbod.js" defer></script>
+    <script src="script/dashboard_script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+        loadDashboard();
+        loaddashboard();
+        });
+    </script>
+
+
+    //-----------------------------need to refactor--------------------------------
+
+
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script>
+        const socket = io("http://localhost:8000", {
+        auth: {
+            token: localStorage.getItem("token")
+        }
+        });
+
+        
+
+
+
+        //-----------------------Sending message---------------------------------------------
+
+        
+        const Sbtn = document.getElementById('sendBtn');
+        const currUser = document.getElementById('currentUser');
+        
+        
+        Sbtn.addEventListener('click', (e) => {
+            
+            const Minp = document.getElementById('msgInput');
+            const Unm = document.getElementById('userId');
+
+            if(Minp.value && Unm.innerText){
+
+                if(!(currUser.textContent === Unm.textContent))
+                {
+                    // adding msg to chat
+                    const ite = document.createElement("li");
+                    ite.classList.add("my-message");
+                    ite.textContent = Minp.value;
+                    const sms = document.querySelectorAll('.msgBox');
+                    sms.forEach((e)=>{
+                        if(e.dataset.user === Unm.textContent){
+                            
+                            const ml = document.getElementById(`messages-${Unm.innerText}`);
+                            ml.appendChild(ite);
+                            
+                        }
+                    })
+                }
+                //emitting msg to server
+            
+                
+                socket.emit('privat',{username: Unm.innerText,message: Minp.value, fromUser: currUser.textContent});
+                
+                Minp.value = "";
+            }
+        });
+
+        
+        //  hering msg from server (friend)
+        socket.on('privat', (msg)=>{
+       
+            const item = document.createElement("li");
+
+            item.textContent = msg.message;
+            item.classList.add(msg.username === msg.fromUser ? "my-message" : "their-message");
+
+            //adding msg to chatbox
+            const chats = document.querySelectorAll('.msgBox');
+            chats.forEach((ell)=>{
+                if(ell.dataset.user === msg.fromUser){
+                   
+                    const ul = document.getElementById(`messages-${msg.fromUser}`);
+                    ul.appendChild(item);
+                    
+                    ell.scrollTop = ell.scrollHeight;
+                }
+            })
+            
+        });
+        
+    </script>
+
+    
+</body>
+</html>
