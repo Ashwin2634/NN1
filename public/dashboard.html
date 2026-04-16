@@ -59,7 +59,9 @@
 
     <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
     <script>
-        const socket = io("http://localhost:8000", {
+        
+
+        const socket = io("http://16.170.233.89", {
         auth: {
             token: localStorage.getItem("token")
         }

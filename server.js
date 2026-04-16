@@ -8,10 +8,11 @@ import express from 'express';
 import connectDB from './src/db/db-cnn.js';
 import User from'./src/db/model.js';
 
+import dotenv from 'dotenv';
+dotenv.config();
 
-const JWT_SECRET = 'Ashwin-Prajapati';
-const port=8000;
-
+const JWT_SECRET = process.env.JWT_SECRET;
+const port= process.env.PORT;
 
 // These two lines replace the old __dirname
 const __filename = fileURLToPath(import.meta.url);
