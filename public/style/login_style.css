@@ -74,11 +74,3 @@ form button:hover{
     background-color: #075ce6;
 }
 
-form input:hover::placeholder {
-    
-
-}
-
-.container:hover{
-    border: 2px solid black;
-}

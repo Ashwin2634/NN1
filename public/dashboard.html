@@ -11,6 +11,18 @@
 
 </head>
 <body>
+    <!-- first check if we have a live token  -->
+    <script>
+        const token = localStorage.getItem('token');
+
+        if(!token){
+            console.log('no active session');
+            window.location.href = 'login.html';
+        }
+    </script>
+
+
+
 
     <div id="container">
         <div id="contact_pane">
@@ -62,7 +74,7 @@
     <script>
         
 
-        const socket = io("http://16.170.233.89:8000", {
+        const socket = io("https://16.170.233.89:8000", {
         auth: {
             token: localStorage.getItem("token")
         }
