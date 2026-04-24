@@ -8,6 +8,20 @@ const list = document.getElementById('cn');   // Only this is needed
 const iid= document.getElementById('userId');
 const divParent = document.getElementById('chats') ;
 
+
+
+// back buttton 
+const bkbtn = document.getElementById('backBtn');
+bkbtn.addEventListener('click',()=>{
+    contPane.style.display= "block";
+    ctbox.style.display= "none";
+});
+
+
+
+
+
+
 async function loaddashboard() {
     try {
         
