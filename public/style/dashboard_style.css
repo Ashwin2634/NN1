@@ -14,7 +14,7 @@ body{
     height: 100vh;
     width: 100vw;
     display: flex;
-    
+    position: relative;
 }
 
 
@@ -25,13 +25,15 @@ body{
 #contact_pane{
     width: 30%;
     height: 100%;
-    background-color: aqua;
+    background-color: #9e9ac8;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
 }
 
 #intropane{
     width: 100%;
     height:8%;
-    background-color: darkcyan;
+    background-color: #9e9ac8;
     display: flex;
 }
 
@@ -58,13 +60,23 @@ body{
     padding-left: 90px;
     font-weight: bold;
 }
-
+#cn{
+    border: 0;
+    border-bottom: 2px;    
+    border-style: solid;
+    border-color: #54278f;
+    border-radius: 6px;
+    
+}
 .contactCard{
     width: 100%;
     height:60px;
-    background-color: bisque;
-    border: 2px solid black;
-    border-radius: 10px;
+    background-color: #cbc9e2;
+    border:2px;
+    border-color: #54278f;
+    border-style: solid;
+    border-bottom: 0;
+    border-radius: 4px;
     padding: 10px;
     align-content: center;
     text-align: center;
@@ -80,17 +92,19 @@ body{
 #chatbox{
     width: 70%;
     height: 100%;
-    background-color: antiquewhite;
+    background-color: white;
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease;
 }
 
 #user{
     width: 100%;
     height:8%;
-    background-color: burlywood;
+    background-color: #cbc9e2;
     align-content: center;
     padding-left: 20px;
+    display: flex;
 }
 
 #userId{
@@ -106,13 +120,13 @@ body{
 #messagebox{
     width: 100%;
     height:10%;
-    background-color:grey;
+    background-color:#cbc9e2;
     padding: 4px;
     display: flex;
 }
 
 #msgInput{
-    border: 2px solid red;
+    border: 2px solid #756bb1;
     border-radius: 5px;
     height: 100%;
     width: 85%;
@@ -141,8 +155,8 @@ body{
     
     list-style: none;
     right: 0;
-
-    border: 2px solid red;
+    background-color: #cbc9e2;
+    border: 2px solid #cbc9e2;
     border-radius: .7rem;
 
     width: fit-content;
@@ -157,8 +171,8 @@ body{
 .their-message{
     
     list-style: none;
-    
-    border: 2px solid red;
+    background-color: #cbc9e2;
+    border: 2px solid #cbc9e2;
     border-radius: .7rem;
 
     width: fit-content;
@@ -172,4 +186,58 @@ body{
 .ulll{
     display: flex;
     flex-direction: column;
+}
+
+
+@media (max-width: 420px) {
+    #contact_pane,
+    #chatbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+    }
+
+    #chatbox {
+        display: none;           /* Hide chat by default on mobile */
+        box-shadow: -2px 0 10px rgba(0,0,0,0.2); /* optional nice effect */
+    }
+
+    #contact_pane {
+        display: block;
+        width: 100%;
+        z-index: 20;
+    }
+
+    /* Hide logo on very small screens if needed */
+    #logo {
+        width: 60px;
+    }
+}
+
+/* Optional: Back button styling */
+#backBtn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0 10px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 420px) {
+    #backBtn {
+        display: block;
+    }
+}
+
+@media (min-width: 420px) {
+    #contact_pane {
+        display: block;
+        
+        
+    }
 }

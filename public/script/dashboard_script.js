@@ -1,3 +1,7 @@
+// for responsive -
+const contPane = document.getElementById('contact_pane');
+const ctbox = document.getElementById('chatbox');
+
 
 
 const list = document.getElementById('cn');   // Only this is needed
@@ -33,6 +37,7 @@ async function loaddashboard() {
             `;
             divParent.appendChild(Cbox);
 
+            // normal event for desktop size
             li.addEventListener('click',(e)=>{
                 iid.innerHTML='';
                 iid.innerText=name;
@@ -50,6 +55,20 @@ async function loaddashboard() {
                 });
 
             });
+
+
+            // Event for mobile size
+            li.addEventListener('click',(e)=>{
+                
+                
+                let ismobile = window.innerWidth <=420;
+                if(ismobile){
+                    contPane.style.display= "none";
+                    ctbox.style.display= "block";
+                }
+
+            });
+
             list.appendChild(li);
         });
 

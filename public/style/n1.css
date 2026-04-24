@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: system-ui, sans-serif;
+    color: rebeccapurple;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+#container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    position: relative;
+}
+
+/* ================= LEFT PANE ================= */
+#contact_pane {
+    width: 320px;
+    min-width: 280px;
+    height: 100%;
+    background: #f0f8ff;
+    border-right: 2px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+#intropane {
+    height: 70px;
+    background: darkcyan;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 12px;
+    color: white;
+    flex-shrink: 0;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#currentUser {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+#contacts {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* ================= CHAT AREA ================= */
+#chatbox {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: antiquewhite;
+    min-width: 0; /* Important for responsiveness */
+}
+
+#user {
+    height: 70px;
+    background: burlywood;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    flex-shrink: 0;
+}
+
+#chats {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+#messagebox {
+    height: 70px;
+    background: #f1f1f1;
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+#msgInput {
+    flex: 1;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 0 16px;
+    font-size: 1rem;
+}
+
+#sendBtn {
+    padding: 0 24px;
+    background: rebeccapurple;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Messages */
+.msgBox {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    padding: 15px;
+    display: none;
+}
+
+.my-message, .their-message {
+    list-style: none;
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.my-message {
+    background: #e3f2fd;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.their-message {
+    background: #f1f1f1;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+}
+
+/* ================= MOBILE HEADER ================= */
+#mobile-header {
+    display: none;
+    height: 60px;
+    background: darkcyan;
+    color: white;
+    align-items: center;
+    padding: 0 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    gap: 12px;
+}
+
+#toggle-sidebar {
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    #contact_pane {
+        position: absolute;
+        left: 0;
+        top: 60px;
+        bottom: 0;
+        width: 280px;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+    }
+
+    #contact_pane.active {
+        transform: translateX(0);
+    }
+
+    #mobile-header {
+        display: flex;
+    }
+
+    #chatbox {
+        width: 100%;
+    }
+
+    #intropane {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    #msgInput {
+        font-size: 0.95rem;
+    }
+
+    .my-message, .their-message {
+        max-width: 85%;
+        font-size: 0.95rem;
+    }
+
+    #messagebox {
+        height: 65px;
+        padding: 8px;
+    }
+}

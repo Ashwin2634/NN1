@@ -6,7 +6,7 @@
     <title>NetworkNest</title>
     <link rel="icon" type="image/png" href="img/download.png">
 
-    <link rel="stylesheet" href="style/dashboard_style.css">
+    <link rel="stylesheet" href="style/dashboard_style.css"">
     <!-- <script src="script/dashboard_script.js" defer></script> -->
 
 </head>
@@ -25,6 +25,11 @@
 
 
     <div id="container">
+
+
+        
+
+
         <div id="contact_pane">
             <div id="intropane">
                 <div id="logo">
@@ -43,10 +48,11 @@
         </div>
         <div id="chatbox">
             <div id="user">
+                <button id="backBtn">←</button>
                 <p id="userId">NetworkNest</p>
             </div>
             <div id="chats">
-            
+                
             </div>
             <div id="messagebox">
                 
@@ -60,15 +66,17 @@
     <script src="./script/auth_dashbod.js" defer></script>
     <script src="script/dashboard_script.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded',()=>{
-        loadDashboard();
-        loaddashboard();
+               
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDashboard();
+            loaddashboard();
+
+            // If contacts load asynchronously, call this after they are added:
+            // setTimeout(attachContactListeners, 500); // or better, call inside your load function
         });
+        
     </script>
-
-
-    //-----------------------------need to refactor--------------------------------
-
 
     <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
     <script>
@@ -84,7 +92,7 @@
 
 
 
-        //-----------------------Sending message---------------------------------------------
+        // -----------------------Sending message---------------------------------------------
 
         
         const Sbtn = document.getElementById('sendBtn');
