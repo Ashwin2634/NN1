@@ -4,15 +4,15 @@
     box-sizing: border-box;
 }
 body{
-    min-height: 100svh;
-    min-width: 100svw;
+    min-height: 100dvh;
+    min-width: 100dvw;
     color:rebeccapurple;
     font-family: system-ui, sans-serif;
     overflow: hidden;
 }
 #container{
-    height: 100svh;
-    width: 100svw;
+    height: 100dvh;
+    width: 100dvw;
     display: flex;
     position: relative;
 }
