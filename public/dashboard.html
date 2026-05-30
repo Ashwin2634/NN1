@@ -84,8 +84,9 @@
     <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
     <script>
         
+        const BASE_URL = window.location.origin ;
 
-        const socket = io("https://nnest.duckdns.org", {
+        const socket = io(BASE_URL, {
         auth: {
             token: localStorage.getItem("token")
         }
