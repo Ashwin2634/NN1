@@ -85,7 +85,7 @@
     <script>
         
         const BASE_URL = window.location.origin ;
-
+        console.log(BASE_URL);
         const socket = io(BASE_URL, {
         auth: {
             token: localStorage.getItem("token")
